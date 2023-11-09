@@ -35,9 +35,13 @@
     </form>
 
     <hr />
+<!--    <p th:unless="${jobs} and ${jobs.size()}" th:text="NO JOBS">no jobs!</p>-->
 
-    <table class="job-listing">
+    <table class="job-listing" >
+
         <tr th:each="job : ${jobs}">
+<!--                <p th:unless="${jobs} and ${jobs.size()}" th:text="NO JOBS">no jobs!</p>-->
+
             <td>
                 <p>
                     Job Id:

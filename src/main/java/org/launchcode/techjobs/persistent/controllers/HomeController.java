@@ -49,13 +49,13 @@ public class HomeController {
 
     @PostMapping("add")
     public String processAddJobForm(@ModelAttribute @Valid Job newJob,
-                                       Errors errors, Model model, @RequestParam int employerId, @RequestParam List<Integer> skills) {
+                                       Errors errors, Model model, @RequestParam(required = false) int employerId, @RequestParam(required=false)List<Integer> skills) {
 
-        System.out.println(skills);
-        model.addAttribute("employers", employerRepository.findAll());//  Must keep Visible to select the employer
-        model.addAttribute("skills", skillRepository.findAll());// Make visible the skills in Job Form
-
+//(required=false)
         if (errors.hasErrors()) {
+
+            model.addAttribute("employers", employerRepository.findAll());//  Must keep Visible to select the employer
+            model.addAttribute("skills", skillRepository.findAll());// Make visible the skills in Job Form
 
             return "add";
 
@@ -67,7 +67,7 @@ public class HomeController {
                     Employer employer = (Employer) optEmployer.get();
                     newJob.setEmployer(employer);
 
-               // }
+                }
 
         if (skills != null) {
 
@@ -75,13 +75,9 @@ public class HomeController {
             newJob.setSkills(skillObjs);
 
         }
-//            model.addAttribute("employers", employerRepository.findAll());
-//            model.addAttribute("skills", skillRepository.findAll());
-            model.addAttribute("employers", employerRepository.findById(employerId));
-            model.addAttribute("skills", skillRepository.findAllById(skills));
 
-        }
         jobRepository.save(newJob);
+
 
         return "redirect:/";
 

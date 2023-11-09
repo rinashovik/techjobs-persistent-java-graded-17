@@ -57,11 +57,13 @@ public class ListController {
             model.addAttribute("title", "All Jobs");
         } else {
             jobs = JobData.findByColumnAndValue(column, value, jobRepository.findAll());// All jobs
-            jobs= jobRepository.findAll();
-          //  model.addAttribute("employers" , employerRepository.findAll());
+           // jobs= jobRepository.findAll();
 
             model.addAttribute("title", "Jobs with " + columnChoices.get(column) + ": " + value);
         }
+
+        model.addAttribute("columns", columnChoices);
+       // model.addAttribute("searchTerm", searchTerm);
         model.addAttribute("jobs", jobs);
 
         return "list-jobs";

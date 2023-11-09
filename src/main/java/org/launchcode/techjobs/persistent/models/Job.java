@@ -14,11 +14,9 @@ import java.util.List;
 
 @Entity
 public class Job extends AbstractEntity{
-    @ManyToOne(cascade = CascadeType.ALL)
-    @NotNull
+   @ManyToOne//(cascade = CascadeType.ALL)
     private Employer employer;
    @ManyToMany
-   @NotNull
    private List<Skill> skills = new ArrayList<>();
 
     public Job() {
@@ -44,28 +42,6 @@ public class Job extends AbstractEntity{
     public void setSkills(List<Skill> skills) {
         this.skills = skills;
     }
-
-//    @Override
-//    public String toString() {
-//        return "Job{" +
-//                "employer=" + employer +
-//                ", skills=" + skills +
-//                '}';
-//    }
-
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (!(o instanceof Job job)) return false;
-//        if (!super.equals(o)) return false;
-//        return Objects.equals(employer, job.employer) && Objects.equals(skills, job.skills);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(super.hashCode(), employer, skills);
-//    }
-
 
 
 }

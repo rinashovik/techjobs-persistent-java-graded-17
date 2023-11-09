@@ -59,6 +59,9 @@ public class SearchController {
         Iterable<Job> jobs;
         if (searchType.equals("all") && searchTerm.equalsIgnoreCase("all") || searchTerm.isEmpty()) {
             jobs = jobRepository.findAll();
+            model.addAttribute("title", "All Jobs");
+            model.addAttribute("title", "Jobs with " + columnChoices.get(searchType) + ": " + searchTerm);
+
 
         } else {
             jobs = JobData.findByColumnAndValue(searchType, searchTerm, jobRepository.findAll());
@@ -72,7 +75,6 @@ public class SearchController {
         model.addAttribute("searchTerm", searchTerm);
         //model.addAttribute("searchType", searchType);
         model.addAttribute("jobs", jobs);
-        //model.addAttribute("jobs", jobRepository.findAll());
         return "search";
     }
 }

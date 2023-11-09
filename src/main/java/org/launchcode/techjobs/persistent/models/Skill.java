@@ -16,17 +16,14 @@ import java.util.List;
 @Entity
 public class Skill extends AbstractEntity {
 
-
    @NotBlank(message = "Required field")
    @Size(min=3, message = "Must be Minimum 3 characters")
     private String description;
 
     @ManyToMany(mappedBy="skills")//Need to check foreign key
-   // @NotNull
-    //  @JoinColumn(name = "skill_id")
     private List<Job> jobs = new ArrayList<>();
 
-
+//The mappedBy attribute is used in a one-to-many relationship to specify the name of the property in the child entity that represents the inverse side of the relationship.
     public Skill() {
     }
 
