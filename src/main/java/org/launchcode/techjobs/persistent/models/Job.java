@@ -14,7 +14,11 @@ import java.util.List;
 
 @Entity
 public class Job extends AbstractEntity{
-   @ManyToOne//(cascade = CascadeType.ALL)
+
+    /*CascadeType. ALL is a cascading type in Hibernate that specifies that all state transitions
+     for auto update CRUD should be cascaded from the parent entity to the child entities.
+  */
+   @ManyToOne(cascade = CascadeType.ALL)// f
     private Employer employer;
    @ManyToMany
    private List<Skill> skills = new ArrayList<>();

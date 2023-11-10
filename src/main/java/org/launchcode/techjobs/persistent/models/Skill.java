@@ -20,10 +20,11 @@ public class Skill extends AbstractEntity {
    @Size(min=3, message = "Must be Minimum 3 characters")
     private String description;
 
-    @ManyToMany(mappedBy="skills")//Need to check foreign key
+    @ManyToMany(mappedBy="skills")
     private List<Job> jobs = new ArrayList<>();
 
-//The mappedBy attribute is used in a one-to-many relationship to specify the name of the property in the child entity that represents the inverse side of the relationship.
+//The mappedBy attribute is used in a one-to-many relationship to specify the name of the property
+// in the child entity that represents the inverse side of the relationship.
     public Skill() {
     }
 
