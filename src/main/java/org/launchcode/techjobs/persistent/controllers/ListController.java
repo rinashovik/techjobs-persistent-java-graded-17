@@ -50,9 +50,9 @@ public class ListController {
     }
 
     @RequestMapping(value = "jobs")
-    public String listJobsByColumnAndValue(Model model, @RequestParam String column, @RequestParam String value) {
+    public String listJobsByColumnAndValue(Model model, @RequestParam(required = false) String column, @RequestParam(required = false) String value) {
         Iterable<Job> jobs;
-        if (column.toLowerCase().equals("all")){
+        if (column.equalsIgnoreCase("all")){
             jobs = jobRepository.findAll();
             model.addAttribute("title", "All Jobs");
         } else {

@@ -49,7 +49,7 @@ public class HomeController {
 
     @PostMapping("add")
     public String processAddJobForm(@ModelAttribute @Valid Job newJob,
-                                       Errors errors, Model model, @RequestParam(required = false) int employerId, @RequestParam(required=false)List<Integer> skills) {
+                                       Errors errors, Model model, @RequestParam(required = false) int employerId, @RequestParam(required=false) List<Integer> skills) {
 
 //(required=false) must need for form submission
         if (errors.hasErrors()) {
@@ -83,8 +83,6 @@ public class HomeController {
 
 
             }
-
-
 
 
     @GetMapping("view/{jobId}")// View individual job
