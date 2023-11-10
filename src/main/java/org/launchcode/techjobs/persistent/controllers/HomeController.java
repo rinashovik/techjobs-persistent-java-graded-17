@@ -51,7 +51,7 @@ public class HomeController {
     public String processAddJobForm(@ModelAttribute @Valid Job newJob,
                                        Errors errors, Model model, @RequestParam(required = false) int employerId, @RequestParam(required=false)List<Integer> skills) {
 
-//(required=false)
+//(required=false) must need for form submission
         if (errors.hasErrors()) {
 
             model.addAttribute("employers", employerRepository.findAll());//  Must keep Visible to select the employer

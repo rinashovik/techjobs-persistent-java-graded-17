@@ -34,24 +34,7 @@ public class SearchController {
         return "search";
     }
 
-    // TODO #3 - Create a handler to process a search request and render the updated search view.
 
-//    @RequestMapping("search")
-//    public String processSearchRequest(Model model) {
-//
-//
-//        model.addAttribute("all", jobRepository.findAll());
-//        model.addAttribute("employers", employerRepository.findAll());
-//        model.addAttribute("skills", skillRepository.findAll());
-//
-//        return "redirect:";
-//    }
-//    @PostMapping("results")
-//    public String processSearchRequest(Model model){
-//
-//
-//        return "redirect:";
-//    }
 
 
     @PostMapping("results")
